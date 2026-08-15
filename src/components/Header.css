@@ -1,0 +1,93 @@
+.header {
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 9, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  color: var(--color-accent-pink);
+}
+
+.logo-text h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+  color: var(--color-text-primary);
+}
+
+.logo-text h1 span {
+  color: var(--color-accent-pink);
+}
+
+.logo-text span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+}
+
+.desktop-nav ul {
+  display: flex;
+  gap: 2rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+}
+
+.desktop-nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+  color: var(--color-accent-pink);
+}
+
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent-pink);
+  transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-cta span {
+    display: none;
+  }
+  .header-cta {
+    padding: 0.75rem;
+    border-radius: 50%;
+  }
+}
