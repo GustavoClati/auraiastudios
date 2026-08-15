@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './CtaSection.css';
 import { Camera, Heart, MessageCircle } from 'lucide-react';
 
@@ -6,7 +7,13 @@ const CtaSection = () => {
   return (
     <section className="cta-section">
       <div className="container">
-        <div className="cta-box">
+        <motion.div 
+          className="cta-box"
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
+        >
           <div className="cta-content">
             <div className="cta-icon-wrapper">
               <Camera size={32} className="cta-icon" />
@@ -22,7 +29,7 @@ const CtaSection = () => {
             <MessageCircle size={22} />
             QUERO MEU ENSAIO AGORA
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

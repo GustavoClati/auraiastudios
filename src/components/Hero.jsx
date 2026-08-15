@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Hero.css';
 import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart } from 'lucide-react';
 import princessImg from '../assets/hero_princess.jpg';
@@ -11,7 +12,13 @@ const Hero = () => {
       <div className="hero-glow"></div>
       <div className="container hero-container">
         
-        <div className="hero-content">
+        <motion.div 
+          className="hero-content"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div className="hero-badge">
             <Sparkles size={16} className="text-gradient" />
             <span className="text-gradient">ENSAIOS INFANTIS CRIADOS COM INTELIGÊNCIA ARTIFICIAL</span>
@@ -55,25 +62,43 @@ const Hero = () => {
               <span>Feito com amor</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="hero-visual">
+        <motion.div 
+          className="hero-visual"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
           <div className="images-composition">
-            <div className="photo-card card-1">
+            <motion.div 
+              className="photo-card card-1"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            >
               <div className="photo-placeholder" style={{ backgroundImage: `url(${princessImg})` }}></div>
-            </div>
-            <div className="photo-card card-2">
+            </motion.div>
+            <motion.div 
+              className="photo-card card-2"
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+            >
               <div className="photo-placeholder" style={{ backgroundImage: `url(${spidermanImg})` }}></div>
               <div className="floating-bubble">
                 <p>Qual tema dos sonhos do seu pequeno?</p>
                 <Sparkles size={14} />
               </div>
-            </div>
-            <div className="photo-card card-3">
+            </motion.div>
+            <motion.div 
+              className="photo-card card-3"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 2 }}
+            >
               <div className="photo-placeholder" style={{ backgroundImage: `url(${pawpatrolImg})` }}></div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
         
       </div>
     </section>

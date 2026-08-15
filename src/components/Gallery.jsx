@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 import './Gallery.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -18,15 +19,27 @@ const Gallery = () => {
 
   return (
     <section id="ensaios" className="gallery-section">
-      <div className="gallery-header">
+      <motion.div 
+        className="gallery-header"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+      >
         <span className="section-subtitle">ALGUNS DOS NOSSOS ENSAIOS</span>
         <h2 className="section-title">
           Ensaios infantis <span className="text-gradient font-italic">incríveis</span>
         </h2>
         <p>Qualquer tema, criado com Inteligência Artificial e muito carinho.</p>
-      </div>
+      </motion.div>
 
-      <div className="gallery-container">
+      <motion.div 
+        className="gallery-container"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Rolar para a esquerda">
           <ChevronLeft size={24} />
         </button>
@@ -42,9 +55,15 @@ const Gallery = () => {
         <button className="scroll-btn right" onClick={() => scroll('right')} aria-label="Rolar para a direita">
           <ChevronRight size={24} />
         </button>
-      </div>
+      </motion.div>
 
-      <div className="gallery-features">
+      <motion.div 
+        className="gallery-features"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
         <div className="g-feature">
           <span>Qualquer tema</span>
         </div>
@@ -64,7 +83,7 @@ const Gallery = () => {
         <div className="g-feature">
           <span>Entrega via WhatsApp</span>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
