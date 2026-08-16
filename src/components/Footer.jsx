@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="logo">
             <Camera className="logo-icon" size={28} />
             <div className="logo-text">
-              <h2>Aura.IA</h2>
+              <h2>Encanta Studio</h2>
               <span>ESTÚDIOS INFANTIS COM IA</span>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Aura IA Studios. Todos os direitos reservados.</p>
+        <p>&copy; {new Date().getFullYear()} Encanta Studio. Todos os direitos reservados.</p>
       </div>
     </footer>
   );

@@ -68,7 +68,7 @@ const Testimonials = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-subtitle">O QUE DIZEM SOBRE A CLICK.IA</span>
+          <span className="section-subtitle">O QUE DIZEM SOBRE A ENCANTA STUDIO</span>
           <h2 className="section-title">Depoimentos <span className="text-gradient font-italic">Reais</span></h2>
           <p className="section-description">
             Milhares de clientes satisfeitos com ensaios criados com inteligência artificial.

@@ -9,7 +9,7 @@ const Header = () => {
         <div className="logo">
           <Camera className="logo-icon" size={32} />
           <div className="logo-text">
-            <h1>Aura.IA</h1>
+            <h1>Encanta Studio</h1>
             <span>ESTÚDIOS INFANTIS COM IA</span>
           </div>
         </div>
