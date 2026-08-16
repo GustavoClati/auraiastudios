@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Hero.css';
 import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart } from 'lucide-react';
-import princessImg from '../assets/hero_princess.jpg';
-import spidermanImg from '../assets/hero_spiderman.jpg';
-import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
-const images = [princessImg, spidermanImg, pawpatrolImg];
+const images = ['/imgs/real-1.jpg', '/imgs/real-2.jpg', '/imgs/real-3.jpg'];
 
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);

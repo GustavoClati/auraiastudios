@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, CloudUpload, Sparkles, Download, ArrowRight } from 'lucide-react';
 import './Pricing.css';
-import princessImg from '../assets/hero_princess.jpg';
-import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
-import astroImg from '../assets/gal_astronaut.jpg';
-import supergirlImg from '../assets/gal_supergirl.jpg';
 
 const packages = [
   {
@@ -13,7 +9,7 @@ const packages = [
     title: '1 FOTO',
     price: 'R$ 13,90',
     unitPrice: 'R$ 13,90 por foto',
-    img: pawpatrolImg,
+    img: '/imgs/real-3.jpg',
     features: ['1 tema à sua escolha', 'Alta resolução (4K)', 'Entrega em até 24h', 'Suporte via WhatsApp'],
     badge: null
   },
@@ -22,7 +18,7 @@ const packages = [
     title: '2 FOTOS',
     price: 'R$ 18,90',
     unitPrice: 'R$ 9,45 por foto',
-    img: princessImg,
+    img: '/imgs/real-4.jpg',
     features: ['Até 2 temas diferentes', 'Alta resolução (4K)', 'Entrega em até 24h', 'Suporte via WhatsApp'],
     badge: null
   },
@@ -31,7 +27,7 @@ const packages = [
     title: '5 FOTOS',
     price: 'R$ 29,90',
     unitPrice: 'R$ 5,98 por foto',
-    img: astroImg,
+    img: '/imgs/real-5.jpg',
     features: ['Até 5 temas diferentes', 'Alta resolução (4K)', 'Entrega expressa (até 12h)', 'Suporte prioritário'],
     badge: 'Mais Pedida'
   },
@@ -40,7 +36,7 @@ const packages = [
     title: '10 FOTOS',
     price: 'R$ 44,90',
     unitPrice: 'R$ 4,49 por foto',
-    img: supergirlImg,
+    img: '/imgs/real-6.jpg',
     features: ['Até 10 temas', 'Alta resolução (4K)', 'Entrega VIP', 'Suporte prioritário', 'Fotos extras'],
     badge: 'Pacote Completo'
   }

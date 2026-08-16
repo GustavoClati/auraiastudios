@@ -1,21 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './Gallery.css';
-import lionImg from '../assets/gal_lion.jpg';
-import fairyImg from '../assets/gal_fairy.jpg';
-import astroImg from '../assets/gal_astronaut.jpg';
-import basketImg from '../assets/gal_basket.jpg';
-import schoolImg from '../assets/gal_school.jpg';
-import farmImg from '../assets/gal_farm.jpg';
-import supergirlImg from '../assets/gal_supergirl.jpg';
-import beachImg from '../assets/gal_beach.jpg';
-import princessImg from '../assets/hero_princess.jpg';
-import spidermanImg from '../assets/hero_spiderman.jpg';
-import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
 const Gallery = () => {
-  const row1Images = [lionImg, fairyImg, astroImg, basketImg, schoolImg, farmImg];
-  const row2Images = [supergirlImg, beachImg, princessImg, spidermanImg, pawpatrolImg];
+  const row1Images = ['/imgs/real-4.jpg', '/imgs/real-5.jpg', '/imgs/real-6.jpg', '/imgs/real-7.jpg', '/imgs/real-8.jpg'];
+  const row2Images = ['/imgs/real-9.jpg', '/imgs/real-10.jpg', '/imgs/real-11.jpg', '/imgs/real-1.jpg', '/imgs/real-2.jpg'];
 
   return (
     <section id="ensaios" className="gallery-section">

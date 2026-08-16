@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="footer-social">
           <h3>Siga-nos</h3>
           <div className="social-icons">
-            <a href="https://www.instagram.com/auraiastudios?igsh=MWF4N2ZlNTA1YXB2MQ==" aria-label="Instagram" target="_blank" rel="noreferrer"><InstagramIcon /></a>
+            <a href="https://www.instagram.com/encantastudios/" aria-label="Instagram" target="_blank" rel="noreferrer"><InstagramIcon /></a>
           </div>
         </div>
       </div>
