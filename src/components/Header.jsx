@@ -1,16 +1,16 @@
 import React from 'react';
 import './Header.css';
-import { Camera, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 const Header = () => {
   return (
     <header className="header">
       <div className="container header-container">
         <div className="logo">
-          <Camera className="logo-icon" size={32} />
+          <img src={logoImg} alt="Encanta Studio" className="logo-img" />
           <div className="logo-text">
             <h1>Encanta Studio</h1>
-            <span>ESTÚDIOS INFANTIS COM IA</span>
           </div>
         </div>
         

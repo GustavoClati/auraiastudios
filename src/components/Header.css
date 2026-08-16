@@ -20,8 +20,12 @@
   gap: 0.75rem;
 }
 
-.logo-icon {
-  color: var(--color-accent-pink);
+.logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .logo-text h1 {
