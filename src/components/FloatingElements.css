@@ -1,0 +1,51 @@
+.floating-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* Allow clicking through the container */
+  z-index: 50; /* Above backgrounds, below header/content if needed */
+  overflow: hidden;
+}
+
+.sticky-cloud-right {
+  position: absolute;
+  right: -50px;
+  top: 15%;
+  z-index: 50;
+  opacity: 0.9;
+  filter: drop-shadow(0 15px 15px rgba(0,0,0,0.1));
+}
+
+.sticky-cloud-left {
+  position: absolute;
+  left: -40px;
+  top: 35%;
+  z-index: 50;
+  opacity: 0.8;
+  filter: drop-shadow(0 15px 15px rgba(0,0,0,0.1));
+  transform: scaleX(-1); /* Flip horizontally for variety */
+}
+
+.scattered-star {
+  position: absolute;
+  z-index: 40;
+  animation: pulseStar 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulseStar {
+  0% { transform: scale(0.9) rotate(-5deg); }
+  100% { transform: scale(1.1) rotate(5deg); }
+}
+
+@media (max-width: 768px) {
+  .sticky-cloud-right {
+    right: -80px;
+    transform: scale(0.6);
+  }
+  .sticky-cloud-left {
+    left: -80px;
+    transform: scale(-0.6, 0.6);
+  }
+}
