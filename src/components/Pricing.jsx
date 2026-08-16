@@ -5,31 +5,44 @@ import './Pricing.css';
 import princessImg from '../assets/hero_princess.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 import astroImg from '../assets/gal_astronaut.jpg';
+import supergirlImg from '../assets/gal_supergirl.jpg';
 
 const packages = [
   {
-    id: 'basic',
+    id: 'pkg-1',
     title: '1 FOTO',
-    price: 'R$ 29,90',
+    price: 'R$ 13,90',
+    unitPrice: 'R$ 13,90 por foto',
     img: pawpatrolImg,
     features: ['1 tema à sua escolha', 'Alta resolução (4K)', 'Entrega em até 24h', 'Suporte via WhatsApp'],
-    isPopular: false
+    badge: null
   },
   {
-    id: 'popular',
-    title: '5 FOTOS',
-    price: 'R$ 99,90',
+    id: 'pkg-2',
+    title: '2 FOTOS',
+    price: 'R$ 18,90',
+    unitPrice: 'R$ 9,45 por foto',
     img: princessImg,
-    features: ['Até 5 temas diferentes', 'Alta resolução (4K)', 'Entrega expressa (até 12h)', 'Suporte prioritário', '1 foto de brinde'],
-    isPopular: true
+    features: ['Até 2 temas diferentes', 'Alta resolução (4K)', 'Entrega em até 24h', 'Suporte via WhatsApp'],
+    badge: null
   },
   {
-    id: 'premium',
-    title: '10 FOTOS',
-    price: 'R$ 149,90',
+    id: 'pkg-5',
+    title: '5 FOTOS',
+    price: 'R$ 29,90',
+    unitPrice: 'R$ 5,98 por foto',
     img: astroImg,
-    features: ['Até 10 temas diferentes', 'Alta resolução (4K)', 'Entrega VIP (até 6h)', 'Suporte prioritário', '3 fotos de brinde'],
-    isPopular: false
+    features: ['Até 5 temas diferentes', 'Alta resolução (4K)', 'Entrega expressa (até 12h)', 'Suporte prioritário'],
+    badge: 'Mais Pedida'
+  },
+  {
+    id: 'pkg-10',
+    title: '10 FOTOS',
+    price: 'R$ 44,90',
+    unitPrice: 'R$ 4,49 por foto',
+    img: supergirlImg,
+    features: ['Até 10 temas', 'Alta resolução (4K)', 'Entrega VIP', 'Suporte prioritário', 'Fotos extras'],
+    badge: 'Pacote Completo'
   }
 ];
 
@@ -53,7 +66,7 @@ const cardVariants = {
 };
 
 const Pricing = () => {
-  const [activePackage, setActivePackage] = useState('popular');
+  const [activePackage, setActivePackage] = useState('pkg-5');
 
   return (
     <section id="pacotes" className="pricing-section">
@@ -135,7 +148,7 @@ const Pricing = () => {
               variants={cardVariants}
               onClick={() => setActivePackage(pkg.id)}
             >
-              {pkg.isPopular && <div className="popular-badge">MAIS ESCOLHIDO</div>}
+              {pkg.badge && <div className="popular-badge">{pkg.badge}</div>}
               <div className="p-card-img" style={{ backgroundImage: `url(${pkg.img})` }}></div>
               <div className="p-card-content">
                 <h3>{pkg.title}</h3>
@@ -144,6 +157,7 @@ const Pricing = () => {
                   <span className="amount">{pkg.price.replace('R$ ', '').split(',')[0]}</span>
                   <span className="cents">,{pkg.price.split(',')[1]}</span>
                 </div>
+                <div className="unit-price">{pkg.unitPrice}</div>
                 
                 <ul className="features-list">
                   {pkg.features.map((feature, index) => (
