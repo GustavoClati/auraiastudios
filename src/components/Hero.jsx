@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart, Cloud } from 'lucide-react';
+import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart, Rocket, Star, Puzzle } from 'lucide-react';
 import './Hero.css';
 import SectionDivider from './SectionDivider';
 
@@ -18,15 +18,15 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      {/* Floating clouds for magic child theme */}
-      <div className="floating-cloud" style={{ top: '10%', left: '5%', opacity: 0.6 }}>
-        <Cloud size={80} color="#FFFFFF" fill="#FFFFFF" />
+      {/* Floating elements for magic child theme */}
+      <div className="floating-element" style={{ top: '10%', left: '8%', opacity: 0.9 }}>
+        <Rocket size={70} color="#FFC700" fill="#FFC700" />
       </div>
-      <div className="floating-cloud" style={{ top: '20%', right: '10%', opacity: 0.8, animationDelay: '2s' }}>
-        <Cloud size={120} color="#FFFFFF" fill="#FFFFFF" />
+      <div className="floating-element" style={{ top: '25%', right: '12%', opacity: 1, animationDelay: '1s' }}>
+        <Puzzle size={80} color="#FF4D8C" fill="#FF4D8C" />
       </div>
-      <div className="floating-cloud" style={{ bottom: '30%', left: '15%', opacity: 0.5, animationDelay: '5s' }}>
-        <Cloud size={60} color="#FFFFFF" fill="#FFFFFF" />
+      <div className="floating-element" style={{ bottom: '25%', left: '15%', opacity: 0.8, animationDelay: '3s' }}>
+        <Star size={60} color="#00B4D8" fill="#00B4D8" />
       </div>
 
       <div className="container hero-container">
@@ -39,7 +39,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="hero-badge">
-            <span className="text-gradient">ENSAIOS INFANTIS COM MAGIA E IA</span>
+            <span>ENSAIOS INFANTIS COM MAGIA E IA</span>
           </div>
           
           <h1 className="hero-title">
