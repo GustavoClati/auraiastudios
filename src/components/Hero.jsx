@@ -1,12 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Hero.css';
 import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart } from 'lucide-react';
 import princessImg from '../assets/hero_princess.jpg';
 import spidermanImg from '../assets/hero_spiderman.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
+const images = [princessImg, spidermanImg, pawpatrolImg];
+
 const Hero = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="hero">
       <div className="hero-glow"></div>
@@ -24,7 +35,7 @@ const Hero = () => {
           </div>
           
           <h1 className="hero-title">
-            Transforme uma foto simples em um <span className="text-gradient font-italic">ensaio dos sonhos.</span>
+            Transforme uma foto simples em um <br/> <span className="text-gradient font-italic">ensaio dos sonhos.</span>
           </h1>
           
           <p className="hero-description">
@@ -70,28 +81,19 @@ const Hero = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
-          <div className="images-composition">
-            <motion.div 
-              className="photo-card card-1"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            >
-              <div className="photo-placeholder" style={{ backgroundImage: `url(${princessImg})` }}></div>
-            </motion.div>
-            <motion.div 
-              className="photo-card card-2"
-              animate={{ y: [0, -15, 0] }}
-              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-            >
-              <div className="photo-placeholder" style={{ backgroundImage: `url(${spidermanImg})` }}></div>
-            </motion.div>
-            <motion.div 
-              className="photo-card card-3"
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 2 }}
-            >
-              <div className="photo-placeholder" style={{ backgroundImage: `url(${pawpatrolImg})` }}></div>
-            </motion.div>
+          <div className="hero-image-wrapper">
+            <div className="hero-image-border"></div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImage}
+                className="hero-main-image"
+                style={{ backgroundImage: `url(${images[currentImage]})` }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+              />
+            </AnimatePresence>
           </div>
         </motion.div>
         

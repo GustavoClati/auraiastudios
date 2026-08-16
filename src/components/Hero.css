@@ -2,6 +2,9 @@
   position: relative;
   padding: 4rem 0 6rem;
   overflow: hidden;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
 }
 
 .hero-glow {
@@ -19,7 +22,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
@@ -36,7 +39,7 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -49,7 +52,7 @@
 }
 
 .hero-description {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: var(--color-text-secondary);
   margin-bottom: 2.5rem;
@@ -89,65 +92,41 @@
 /* Visual Composition */
 .hero-visual {
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 600px;
 }
 
-.images-composition {
+.hero-image-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 550px;
+  border-radius: 24px;
 }
 
-.photo-card {
+.hero-image-border {
   position: absolute;
-  border-radius: 16px;
-  padding: 8px;
-  background: var(--color-bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.5s ease;
-}
-
-.photo-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  z-index: 10 !important;
-}
-
-.photo-placeholder {
+  top: 15px;
+  left: -15px;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border: 2px solid var(--color-accent-pink);
+  border-radius: 24px;
+  z-index: 1;
+}
+
+.hero-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
   background-size: cover;
   background-position: center;
-  background-color: #2a223a; /* Fallback color */
-}
-
-/* Specific card positioning */
-.card-1 {
-  width: 240px;
-  height: 340px;
-  top: 0;
-  right: 45%;
-  z-index: 1;
-  transform: rotate(-6deg);
-}
-
-.card-2 {
-  width: 240px;
-  height: 340px;
-  top: 60px;
-  right: 25%;
-  z-index: 3;
-  transform: rotate(2deg);
-}
-
-.card-3 {
-  width: 240px;
-  height: 340px;
-  top: 120px;
-  right: 5%;
   z-index: 2;
-  transform: rotate(10deg);
+  box-shadow: var(--shadow-lg);
 }
 
 @media (max-width: 1024px) {
@@ -170,12 +149,9 @@
   
   .hero-visual {
     height: 500px;
+    justify-content: center;
     margin-top: 2rem;
   }
-  
-  .card-1 { right: 55%; }
-  .card-2 { right: 30%; }
-  .card-3 { right: 5%; }
 }
 
 @media (max-width: 600px) {
@@ -191,8 +167,8 @@
     height: 400px;
   }
   
-  .card-1, .card-2, .card-3 {
-    width: 180px;
-    height: 260px;
+  .hero-image-wrapper {
+    width: 280px;
+    height: 380px;
   }
 }

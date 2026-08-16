@@ -1,22 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, MessageCircle, Clock, Heart, ShieldCheck, Camera, Sparkles } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import './Pricing.css';
 import princessImg from '../assets/hero_princess.jpg';
-import spidermanImg from '../assets/hero_spiderman.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
-const Pricing = () => {
+const packages = [
+  {
+    id: 'basic',
+    title: '1 FOTO',
+    price: 'R$ 29,90',
+    img: pawpatrolImg,
+    features: ['1 tema à sua escolha', 'Alta resolução (4K)', 'Entrega em até 24h', 'Suporte via WhatsApp'],
+    isPopular: false
+  },
+  {
+    id: 'popular',
+    title: '5 FOTOS',
+    price: 'R$ 99,90',
+    img: princessImg,
+    features: ['Até 5 temas diferentes', 'Alta resolução (4K)', 'Entrega expressa (até 12h)', 'Suporte prioritário', '1 foto de brinde'],
+    isPopular: true
+  }
+];
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const Pricing = () => {
+  const [activePackage, setActivePackage] = useState('popular');
 
   return (
     <section id="pacotes" className="pricing-section">
       <div className="container">
-        
         <motion.div 
           className="section-header"
           initial={{ opacity: 0, y: 20 }}
@@ -24,155 +56,58 @@ const Pricing = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-subtitle"><Camera size={14} style={{display:'inline', marginRight: '4px', verticalAlign:'middle'}}/> INVESTIMENTO</span>
-          <h2 className="section-title">Escolha seu <span className="text-gradient font-italic">pacote</span></h2>
-          <p className="section-description" style={{marginBottom: '1rem'}}>
-            Quanto mais fotos no pacote, melhor o valor por unidade.
+          <span className="section-subtitle">ESCOLHA SEU PACOTE</span>
+          <h2 className="section-title">Pacotes <span className="text-gradient font-italic">Especiais</span></h2>
+          <p className="section-description">
+            Sem mensalidades, pague apenas pelo pacote de fotos que desejar gerar.
           </p>
-          
-          <div className="pricing-features-badge">
-            <Sparkles size={14} />
-            <span><strong>TODOS OS ENSAIOS INCLUEM:</strong> edição profissional • qualquer tema • entrega em alta qualidade</span>
-          </div>
         </motion.div>
 
         <motion.div 
           className="pricing-grid"
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          variants={{
-            visible: { transition: { staggerChildren: 0.1 } }
-          }}
         >
-          {/* Pacote 1 */}
-          <motion.div className="pricing-card" variants={cardVariants}>
-            <div className="p-card-img" style={{ backgroundImage: `url(${pawpatrolImg})` }}></div>
-            <div className="p-card-content">
-              <h3>1 FOTO</h3>
-              <div className="price">
-                <span className="currency">R$</span>
-                <span className="amount">13<span className="cents">,90</span></span>
+          {packages.map((pkg) => (
+            <motion.div 
+              key={pkg.id} 
+              className={`pricing-card ${activePackage === pkg.id ? 'highlighted active' : ''}`} 
+              variants={cardVariants}
+              onClick={() => setActivePackage(pkg.id)}
+            >
+              {pkg.isPopular && <div className="popular-badge">MAIS ESCOLHIDO</div>}
+              <div className="p-card-img" style={{ backgroundImage: `url(${pkg.img})` }}></div>
+              <div className="p-card-content">
+                <h3>{pkg.title}</h3>
+                <div className="price">
+                  <span className="currency">R$</span>
+                  <span className="amount">{pkg.price.replace('R$ ', '').split(',')[0]}</span>
+                  <span className="cents">,{pkg.price.split(',')[1]}</span>
+                </div>
+                
+                <ul className="features-list">
+                  {pkg.features.map((feature, index) => (
+                    <li key={index}>
+                      <CheckCircle2 size={18} className="check-icon" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <a 
+                  href={`https://wa.me/5511999999999?text=Olá! Gostaria de adquirir o pacote de ${pkg.title}`}
+                  className={`btn-primary w-100 ${activePackage !== pkg.id ? 'btn-outline' : ''}`}
+                  target="_blank" 
+                  rel="noreferrer"
+                >
+                  Quero este pacote
+                </a>
               </div>
-              <ul className="features-list">
-                <li><Check size={16} className="check-icon"/> 1 foto profissional</li>
-                <li><Check size={16} className="check-icon"/> Edição de alta qualidade</li>
-                <li><Check size={16} className="check-icon"/> Entrega rápida</li>
-              </ul>
-              <a href="#contato" className="btn-secondary w-full">
-                <MessageCircle size={18} /> Quero esse pacote
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Pacote 2 */}
-          <motion.div className="pricing-card" variants={cardVariants}>
-            <div className="p-card-img" style={{ backgroundImage: `url(${spidermanImg})` }}></div>
-            <div className="p-card-content">
-              <h3>2 FOTOS</h3>
-              <div className="price">
-                <span className="currency">R$</span>
-                <span className="amount">18<span className="cents">,90</span></span>
-              </div>
-              <ul className="features-list">
-                <li><Check size={16} className="check-icon"/> 2 fotos profissionais</li>
-                <li><Check size={16} className="check-icon"/> Edição de alta qualidade</li>
-                <li><Check size={16} className="check-icon"/> Entrega rápida</li>
-              </ul>
-              <a href="#contato" className="btn-secondary w-full">
-                <MessageCircle size={18} /> Quero esse pacote
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Pacote 3 - Mais Escolhido */}
-          <motion.div className="pricing-card highlighted" variants={cardVariants}>
-            <div className="popular-badge">MAIS ESCOLHIDO</div>
-            <div className="p-card-img" style={{ backgroundImage: `url(${princessImg})` }}></div>
-            <div className="p-card-content">
-              <h3>5 FOTOS</h3>
-              <div className="price">
-                <span className="currency">R$</span>
-                <span className="amount">29<span className="cents">,90</span></span>
-              </div>
-              <ul className="features-list">
-                <li><Check size={16} className="check-icon pink-check"/> 5 fotos profissionais</li>
-                <li><Check size={16} className="check-icon pink-check"/> Edição de alta qualidade</li>
-                <li><Check size={16} className="check-icon pink-check"/> Entrega rápida</li>
-              </ul>
-              <a href="#contato" className="btn-primary w-full">
-                <MessageCircle size={18} /> Quero esse pacote
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Pacote 4 */}
-          <motion.div className="pricing-card" variants={cardVariants}>
-            <div className="p-card-img" style={{ backgroundImage: `url(${pawpatrolImg})` }}></div>
-            <div className="p-card-content">
-              <h3>10 FOTOS</h3>
-              <div className="price">
-                <span className="currency">R$</span>
-                <span className="amount">44<span className="cents">,90</span></span>
-              </div>
-              <ul className="features-list">
-                <li><Check size={16} className="check-icon blue-check"/> 10 fotos profissionais</li>
-                <li><Check size={16} className="check-icon blue-check"/> Edição de alta qualidade</li>
-                <li><Check size={16} className="check-icon blue-check"/> Entrega rápida</li>
-              </ul>
-              <a href="#contato" className="btn-secondary w-full blue-btn">
-                <MessageCircle size={18} /> Quero esse pacote
-              </a>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </motion.div>
-
-        {/* Urgency Banner */}
-        <motion.div 
-          className="urgency-banner"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <Clock size={32} className="urgency-icon" />
-          <div className="urgency-text">
-            <h4>PRECISA COM URGÊNCIA?</h4>
-            <p>Entrega expressa em até 2 horas por +R$ 20,00.</p>
-          </div>
-        </motion.div>
-
-        {/* Trust Badges */}
-        <div className="trust-badges">
-          <div className="badge-item">
-            <ShieldCheck size={28} className="badge-icon pink" />
-            <div className="badge-text">
-              <strong>Entrega em até 24h</strong>
-              <span>Após a confirmação do pagamento</span>
-            </div>
-          </div>
-          <div className="badge-item">
-            <Sparkles size={28} className="badge-icon blue" />
-            <div className="badge-text">
-              <strong>Qualquer tema</strong>
-              <span>Fazemos todos os temas</span>
-            </div>
-          </div>
-          <div className="badge-item">
-            <MessageCircle size={28} className="badge-icon green" />
-            <div className="badge-text">
-              <strong>Entregue no WhatsApp</strong>
-              <span>Prático, rápido e seguro</span>
-            </div>
-          </div>
-          <div className="badge-item">
-            <Heart size={28} className="badge-icon pink" />
-            <div className="badge-text">
-              <strong>Feito com muito amor</strong>
-              <span>Para eternizar momentos</span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );

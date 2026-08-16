@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import './Testimonials.css';
 
-const testimonialsData = [
+const testimonialsRow1 = [
   {
     id: 1,
     name: 'Camila R.',
@@ -24,42 +24,38 @@ const testimonialsData = [
   },
   {
     id: 4,
+    name: 'Amanda C.',
+    theme: 'Fazendinha',
+    clientMsg: 'As fotos do meu filho de caipira ficaram perfeitas! Todo mundo no Instagram amou.'
+  }
+];
+
+const testimonialsRow2 = [
+  {
+    id: 5,
     name: 'Rafael T.',
     theme: 'Retrato corporativo',
     clientMsg: 'Muito prático! Só mandei uma foto do celular e recebi o ensaio perfeito pro meu LinkedIn. Ganhei até elogio no trabalho.'
   },
   {
-    id: 5,
+    id: 6,
     name: 'Beatriz S.',
     theme: 'Super-Herói',
     clientMsg: 'Superou todas as expectativas. Fizemos o tema do Batman pro meu sobrinho e ele não para de mostrar pra todo mundo!'
   },
   {
-    id: 6,
+    id: 7,
     name: 'Marcos V.',
     theme: 'Adolescente',
     clientMsg: 'Excelente atendimento e qualidade absurda. Pedi alteração em uma das fotos e me mandaram de volta rapidinho.'
+  },
+  {
+    id: 8,
+    name: 'Luiza B.',
+    theme: 'Escolar',
+    clientMsg: 'Fiz o tema escolar para a lembrancinha dos avós e ficou um charme. Vale muito a pena o pacote maior!'
   }
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
 
 const Testimonials = () => {
   return (
@@ -78,31 +74,50 @@ const Testimonials = () => {
             Milhares de clientes satisfeitos com ensaios criados com inteligência artificial.
           </p>
         </motion.div>
+      </div>
 
-        <motion.div 
-          className="testimonials-grid"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {testimonialsData.map((t) => (
-            <motion.div key={t.id} className="review-card" variants={cardVariants}>
-              <div className="r-stars">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="currentColor" stroke="none" />
-                ))}
-              </div>
-              <p className="r-msg">"{t.clientMsg}"</p>
-              <div className="r-footer">
-                <div className="r-user-info">
-                  <h4>{t.name}</h4>
-                  <span>Tema: {t.theme}</span>
+      <div className="t-marquee-container">
+        <div className="t-marquee t-marquee-left">
+          <div className="t-marquee-content">
+            {testimonialsRow1.concat(testimonialsRow1).map((t, index) => (
+              <div key={index} className="review-card">
+                <div className="r-stars">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" stroke="none" />
+                  ))}
+                </div>
+                <p className="r-msg">"{t.clientMsg}"</p>
+                <div className="r-footer">
+                  <div className="r-user-info">
+                    <h4>{t.name}</h4>
+                    <span>Tema: {t.theme}</span>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </div>
+
+        <div className="t-marquee t-marquee-right">
+          <div className="t-marquee-content t-right-direction">
+            {testimonialsRow2.concat(testimonialsRow2).map((t, index) => (
+              <div key={index} className="review-card">
+                <div className="r-stars">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" stroke="none" />
+                  ))}
+                </div>
+                <p className="r-msg">"{t.clientMsg}"</p>
+                <div className="r-footer">
+                  <div className="r-user-info">
+                    <h4>{t.name}</h4>
+                    <span>Tema: {t.theme}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

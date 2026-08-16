@@ -1,37 +1,21 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import './Gallery.css';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import lionImg from '../assets/gal_lion.jpg';
 import fairyImg from '../assets/gal_fairy.jpg';
 import astroImg from '../assets/gal_astronaut.jpg';
 import basketImg from '../assets/gal_basket.jpg';
+import schoolImg from '../assets/gal_school.jpg';
+import farmImg from '../assets/gal_farm.jpg';
+import supergirlImg from '../assets/gal_supergirl.jpg';
+import beachImg from '../assets/gal_beach.jpg';
+import princessImg from '../assets/hero_princess.jpg';
+import spidermanImg from '../assets/hero_spiderman.jpg';
+import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
 const Gallery = () => {
-  const scrollRef = useRef(null);
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -300 : 300;
-      
-      // Reset scroll to beginning if it reaches the end
-      if (direction === 'right' && current.scrollLeft + current.clientWidth >= current.scrollWidth - 10) {
-        current.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-    }
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      scroll('right');
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const images = [lionImg, fairyImg, astroImg, basketImg, lionImg, fairyImg, astroImg, basketImg];
+  const row1Images = [lionImg, fairyImg, astroImg, basketImg, schoolImg, farmImg];
+  const row2Images = [supergirlImg, beachImg, princessImg, spidermanImg, pawpatrolImg, lionImg];
 
   return (
     <section id="ensaios" className="gallery-section">
@@ -49,36 +33,27 @@ const Gallery = () => {
         <p>Qualquer tema, criado com Inteligência Artificial e muito carinho.</p>
       </motion.div>
 
-      <motion.div 
-        className="gallery-container"
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <button className="scroll-btn left" onClick={() => scroll('left')} aria-label="Rolar para a esquerda">
-          <ChevronLeft size={24} />
-        </button>
-        
-        <div className="gallery-track" ref={scrollRef}>
-          {images.map((imgSrc, index) => (
-            <motion.div 
-              key={index} 
-              className={`gallery-item item-${index}`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "0px -50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="gallery-img-placeholder" style={{ backgroundImage: `url(${imgSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-            </motion.div>
-          ))}
+      <div className="marquee-container">
+        <div className="marquee marquee-left">
+          <div className="marquee-content">
+            {row1Images.concat(row1Images).map((imgSrc, index) => (
+              <div key={index} className="gallery-item">
+                <div className="gallery-img-placeholder" style={{ backgroundImage: `url(${imgSrc})` }}></div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <button className="scroll-btn right" onClick={() => scroll('right')} aria-label="Rolar para a direita">
-          <ChevronRight size={24} />
-        </button>
-      </motion.div>
+        <div className="marquee marquee-right">
+          <div className="marquee-content right-direction">
+            {row2Images.concat(row2Images).map((imgSrc, index) => (
+              <div key={index} className="gallery-item">
+                <div className="gallery-img-placeholder" style={{ backgroundImage: `url(${imgSrc})` }}></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <motion.div 
         className="gallery-features"
@@ -89,10 +64,6 @@ const Gallery = () => {
       >
         <div className="g-feature">
           <span>Qualquer tema</span>
-        </div>
-        <div className="g-divider"></div>
-        <div className="g-feature">
-          <span>Entrega em até 24h</span>
         </div>
         <div className="g-divider"></div>
         <div className="g-feature">
