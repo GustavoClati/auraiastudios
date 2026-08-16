@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart, Rocket, Star, Puzzle } from 'lucide-react';
 import './Hero.css';
 import SectionDivider from './SectionDivider';
+import FloatingElements from './FloatingElements';
 
 const images = ['/imgs/real-1.jpg', '/imgs/real-2.jpg', '/imgs/real-3.jpg'];
 
@@ -18,6 +19,7 @@ const Hero = () => {
 
   return (
     <section className="hero">
+      <FloatingElements />
       {/* Floating elements for magic child theme */}
       <div className="floating-element" style={{ top: '10%', left: '8%', opacity: 0.9 }}>
         <Rocket size={70} color="#FFC700" fill="#FFC700" />

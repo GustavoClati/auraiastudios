@@ -9,7 +9,7 @@ const Gallery = () => {
   return (
     <section id="ensaios" className="gallery-section">
       <motion.div 
-        className="gallery-header"
+        className="section-header"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -19,7 +19,7 @@ const Gallery = () => {
         <h2 className="section-title">
           Ensaios infantis <span className="text-pink font-italic">incríveis</span>
         </h2>
-        <p>Qualquer tema, criado com Inteligência Artificial e muito carinho.</p>
+        <p className="section-description">Qualquer tema, criado com Inteligência Artificial e muito carinho.</p>
       </motion.div>
 
       <div className="marquee-container">

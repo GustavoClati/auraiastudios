@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import './FloatingElements.css';
 
 const Cloud3D = ({ className, delay = 0 }) => (
@@ -49,44 +49,31 @@ const Cloud3D = ({ className, delay = 0 }) => (
 );
 
 const FloatingElements = () => {
-  const { scrollY } = useScroll();
-  
-  // Create parallax effects based on scroll position
-  const y1 = useTransform(scrollY, [0, 3000], [0, 800]);
-  const y2 = useTransform(scrollY, [0, 3000], [0, 1200]);
-  const y3 = useTransform(scrollY, [0, 3000], [0, 600]);
-
   return (
     <div className="floating-container">
-      {/* Sticky cloud that stays in view (follows the scroll) */}
-      <motion.div 
-        className="sticky-cloud-right"
-        style={{ y: y1 }}
-      >
+      {/* Absolute cloud that stays in Hero */}
+      <motion.div className="sticky-cloud-right">
         <Cloud3D />
       </motion.div>
 
-      <motion.div 
-        className="sticky-cloud-left"
-        style={{ y: y2 }}
-      >
+      <motion.div className="sticky-cloud-left">
         <Cloud3D delay={2} />
       </motion.div>
 
       {/* Decorative stars scattered across the height */}
-      <motion.div className="scattered-star" style={{ top: '15%', left: '10%', y: y3 }}>
+      <motion.div className="scattered-star" style={{ top: '15%', left: '10%' }}>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="#FFC700" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 5px 0px #D99A00)' }}>
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
         </svg>
       </motion.div>
 
-      <motion.div className="scattered-star" style={{ top: '45%', right: '8%', y: y1 }}>
+      <motion.div className="scattered-star" style={{ top: '45%', right: '8%' }}>
         <svg width="50" height="50" viewBox="0 0 24 24" fill="#00B4D8" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 5px 0px #0087A1)' }}>
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
         </svg>
       </motion.div>
       
-      <motion.div className="scattered-star" style={{ top: '75%', left: '5%', y: y2 }}>
+      <motion.div className="scattered-star" style={{ top: '75%', left: '5%' }}>
         <svg width="45" height="45" viewBox="0 0 24 24" fill="#FF4D8C" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0px 5px 0px #D13B6B)' }}>
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
         </svg>
