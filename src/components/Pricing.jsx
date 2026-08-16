@@ -87,7 +87,7 @@ const Pricing = () => {
 
           {/* Pacote 3 - Mais Escolhido */}
           <motion.div className="pricing-card highlighted" variants={cardVariants}>
-            <div className="popular-badge">⭐ MAIS ESCOLHIDO</div>
+            <div className="popular-badge">MAIS ESCOLHIDO</div>
             <div className="p-card-img" style={{ backgroundImage: `url(${princessImg})` }}></div>
             <div className="p-card-content">
               <h3>5 FOTOS</h3>

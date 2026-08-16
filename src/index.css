@@ -63,6 +63,19 @@ img {
   display: block;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em; /* Tighten up headings for a premium look */
+  color: var(--color-text-primary);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
 button {
   font-family: inherit;
   border: none;

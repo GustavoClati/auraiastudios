@@ -20,7 +20,6 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="hero-badge">
-            <Sparkles size={16} className="text-gradient" />
             <span className="text-gradient">ENSAIOS INFANTIS CRIADOS COM INTELIGÊNCIA ARTIFICIAL</span>
           </div>
           
@@ -85,10 +84,6 @@ const Hero = () => {
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
             >
               <div className="photo-placeholder" style={{ backgroundImage: `url(${spidermanImg})` }}></div>
-              <div className="floating-bubble">
-                <p>Qual tema dos sonhos do seu pequeno?</p>
-                <Sparkles size={14} />
-              </div>
             </motion.div>
             <motion.div 
               className="photo-card card-3"

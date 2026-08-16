@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './Gallery.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -14,9 +14,22 @@ const Gallery = () => {
     if (scrollRef.current) {
       const { current } = scrollRef;
       const scrollAmount = direction === 'left' ? -300 : 300;
-      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      
+      // Reset scroll to beginning if it reaches the end
+      if (direction === 'right' && current.scrollLeft + current.clientWidth >= current.scrollWidth - 10) {
+        current.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      scroll('right');
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   const images = [lionImg, fairyImg, astroImg, basketImg, lionImg, fairyImg, astroImg, basketImg];
 
