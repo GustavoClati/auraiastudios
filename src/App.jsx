@@ -11,7 +11,10 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className="app">
+      <div className="global-glow glow-1"></div>
+      <div className="global-glow glow-2"></div>
+      <div className="global-glow glow-3"></div>
       <Header />
       <main>
         <Hero />
@@ -22,7 +25,7 @@ function App() {
         <CtaSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

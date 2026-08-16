@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ImagePlus, Wand2, Send } from 'lucide-react';
 import './Pricing.css';
 import princessImg from '../assets/hero_princess.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
+import astroImg from '../assets/gal_astronaut.jpg';
 
 const packages = [
   {
@@ -21,6 +22,14 @@ const packages = [
     img: princessImg,
     features: ['Até 5 temas diferentes', 'Alta resolução (4K)', 'Entrega expressa (até 12h)', 'Suporte prioritário', '1 foto de brinde'],
     isPopular: true
+  },
+  {
+    id: 'premium',
+    title: '10 FOTOS',
+    price: 'R$ 149,90',
+    img: astroImg,
+    features: ['Até 10 temas diferentes', 'Alta resolução (4K)', 'Entrega VIP (até 6h)', 'Suporte prioritário', '3 fotos de brinde'],
+    isPopular: false
   }
 ];
 
@@ -49,12 +58,61 @@ const Pricing = () => {
   return (
     <section id="pacotes" className="pricing-section">
       <div className="container">
+        
         <motion.div 
           className="section-header"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
+        >
+          <span className="section-subtitle">COMO FUNCIONA</span>
+          <h2 className="section-title">Magia em <span className="text-gradient font-italic">3 Passos</span></h2>
+        </motion.div>
+
+        <motion.div 
+          className="how-it-works-steps"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={containerVariants}
+        >
+          <motion.div className="step-item" variants={cardVariants}>
+            <div className="step-icon">
+              <ImagePlus size={32} />
+            </div>
+            <h3>1. Envie a Foto</h3>
+            <p>Mande de 1 a 3 fotos claras do rosto da criança pelo WhatsApp.</p>
+          </motion.div>
+          
+          <motion.div className="step-divider" variants={cardVariants}></motion.div>
+
+          <motion.div className="step-item" variants={cardVariants}>
+            <div className="step-icon">
+              <Wand2 size={32} />
+            </div>
+            <h3>2. Escolha o Tema</h3>
+            <p>Escolha o seu pacote abaixo e defina os temas (heróis, profissões, fadas...).</p>
+          </motion.div>
+
+          <motion.div className="step-divider" variants={cardVariants}></motion.div>
+
+          <motion.div className="step-item" variants={cardVariants}>
+            <div className="step-icon">
+              <Send size={32} />
+            </div>
+            <h3>3. Receba a Magia</h3>
+            <p>Nossa Inteligência Artificial cria tudo e te entregamos pronto em alta resolução!</p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div 
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          style={{ marginTop: '5rem' }}
         >
           <span className="section-subtitle">ESCOLHA SEU PACOTE</span>
           <h2 className="section-title">Pacotes <span className="text-gradient font-italic">Especiais</span></h2>

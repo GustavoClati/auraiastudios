@@ -15,7 +15,7 @@ import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
 const Gallery = () => {
   const row1Images = [lionImg, fairyImg, astroImg, basketImg, schoolImg, farmImg];
-  const row2Images = [supergirlImg, beachImg, princessImg, spidermanImg, pawpatrolImg, lionImg];
+  const row2Images = [supergirlImg, beachImg, princessImg, spidermanImg, pawpatrolImg];
 
   return (
     <section id="ensaios" className="gallery-section">

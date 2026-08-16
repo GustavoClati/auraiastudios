@@ -139,3 +139,45 @@ button {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Global Magic Glows */
+.global-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatOrb 10s infinite alternate ease-in-out;
+}
+
+.glow-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 66, 117, 0.15);
+  top: 10%;
+  left: -10%;
+}
+
+.glow-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(66, 135, 255, 0.1);
+  top: 40%;
+  right: -15%;
+  animation-delay: 2s;
+}
+
+.glow-3 {
+  width: 600px;
+  height: 600px;
+  background: rgba(255, 184, 0, 0.08);
+  bottom: -10%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -50px) scale(1.1); }
+  100% { transform: translate(-30px, 20px) scale(0.9); }
+}
