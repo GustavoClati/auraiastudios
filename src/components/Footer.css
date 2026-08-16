@@ -1,7 +1,8 @@
 .footer {
-  background-color: #05040a;
+  background-color: var(--color-text-primary);
   padding-top: 4rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
+  position: relative;
 }
 
 .footer-container {
@@ -29,13 +30,13 @@
 .footer-brand .logo h2 {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--color-text-primary);
+  color: white;
   margin-bottom: 0.2rem;
 }
 
 .footer-description {
   margin-top: 1.5rem;
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   line-height: 1.6;
   max-width: 300px;
@@ -43,8 +44,8 @@
 
 .footer-links h3, .footer-social h3 {
   font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
+  font-weight: 800;
+  color: white;
   margin-bottom: 1.5rem;
 }
 
@@ -55,9 +56,10 @@
 }
 
 .footer-links a {
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
   transition: color 0.3s ease;
+  font-weight: 600;
 }
 
 .footer-links a:hover {
@@ -70,21 +72,22 @@
 }
 
 .social-icons a {
-  color: var(--color-text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
   color: var(--color-accent-pink);
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1);
 }
 
 .footer-bottom {
   text-align: center;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--color-text-secondary);
+  border-top: 2px dashed rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

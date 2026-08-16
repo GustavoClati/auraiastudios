@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, CloudUpload, Sparkles, Download, ArrowRight } from 'lucide-react';
 import './Pricing.css';
+import SectionDivider from './SectionDivider';
 
 const packages = [
   {
@@ -66,7 +67,11 @@ const Pricing = () => {
 
   return (
     <section id="pacotes" className="pricing-section">
-      <div className="container">
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <SectionDivider position="top" color="var(--color-bg-secondary)" />
+      </div>
+      
+      <div className="container" style={{ paddingTop: '8rem' }}>
         
         <motion.div 
           className="section-header"

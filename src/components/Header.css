@@ -1,11 +1,12 @@
 .header {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 9, 20, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 3px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(124, 185, 232, 0.1);
 }
 
 .header-container {
@@ -25,40 +26,28 @@
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo-text h1 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 0.2rem;
   color: var(--color-text-primary);
-}
-
-.logo-text h1 span {
-  color: var(--color-accent-pink);
-}
-
-.logo-text span {
-  display: block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--color-text-secondary);
 }
 
 .desktop-nav ul {
   display: flex;
   gap: 2rem;
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 1rem;
   color: var(--color-text-primary);
 }
 
 .desktop-nav a {
   position: relative;
   transition: color 0.3s ease;
+  padding: 0.5rem 0;
 }
 
 .desktop-nav a:hover {
@@ -69,15 +58,23 @@
   content: '';
   position: absolute;
   width: 0;
-  height: 2px;
+  height: 4px;
   bottom: -4px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--color-accent-pink);
-  transition: width 0.3s ease;
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .desktop-nav a:hover::after {
   width: 100%;
+}
+
+.header-cta {
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid white;
 }
 
 @media (max-width: 968px) {

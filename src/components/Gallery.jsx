@@ -54,15 +54,12 @@ const Gallery = () => {
         <div className="g-feature">
           <span>Qualquer tema</span>
         </div>
-        <div className="g-divider"></div>
         <div className="g-feature">
           <span>100% online</span>
         </div>
-        <div className="g-divider"></div>
         <div className="g-feature">
           <span>Feito com amor</span>
         </div>
-        <div className="g-divider"></div>
         <div className="g-feature">
           <span>Entrega via WhatsApp</span>
         </div>

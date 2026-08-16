@@ -1,6 +1,7 @@
 .pricing-section {
   padding: var(--section-padding);
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-main);
+  position: relative;
 }
 
 .pricing-grid {
@@ -13,9 +14,9 @@
 }
 
 .pricing-card {
-  background: var(--color-bg-main);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+  background: var(--color-bg-secondary);
+  border: 4px solid var(--border-color);
+  border-radius: 30px;
   overflow: hidden;
   position: relative;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -25,35 +26,34 @@
   max-width: 400px;
   cursor: pointer;
   transform: scale(0.95);
-  opacity: 0.7;
+  box-shadow: var(--shadow-sm);
 }
 
 .pricing-card.active {
   transform: scale(1.05);
-  opacity: 1;
   border-color: var(--color-accent-pink);
-  box-shadow: 0 20px 40px rgba(255, 66, 117, 0.15), 0 0 0 1px var(--color-accent-pink);
+  box-shadow: 0 20px 40px rgba(255, 133, 162, 0.2), 0 10px 0 var(--color-accent-pink);
   z-index: 10;
 }
 
 .pricing-card:not(.active):hover {
   transform: scale(0.98);
-  opacity: 0.9;
 }
 
 .popular-badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--color-gradient-primary);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.4rem 1rem;
+  background: var(--color-accent-yellow);
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 0.5rem 1.2rem;
   border-radius: 999px;
   letter-spacing: 0.5px;
   z-index: 2;
-  box-shadow: 0 4px 12px rgba(255, 66, 117, 0.4);
+  box-shadow: 0 4px 0 #E5B345;
+  text-transform: uppercase;
 }
 
 .p-card-img {
@@ -64,16 +64,6 @@
   position: relative;
 }
 
-.p-card-img::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to top, var(--color-bg-main) 0%, transparent 100%);
-}
-
 .p-card-content {
   padding: 2rem;
   display: flex;
@@ -82,8 +72,8 @@
 }
 
 .pricing-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 800;
   margin-bottom: 1rem;
   color: var(--color-text-primary);
 }
@@ -96,31 +86,33 @@
 }
 
 .price .currency {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-top: 0.5rem;
   margin-right: 0.25rem;
+  color: var(--color-accent-blue);
 }
 
 .price .amount {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -2px;
 }
 
 .price .cents {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-top: 0.5rem;
+  color: var(--color-accent-blue);
 }
 
 .unit-price {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--color-accent-pink);
   margin-top: -1.5rem;
   margin-bottom: 2rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -137,13 +129,14 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--color-text-secondary);
   line-height: 1.4;
+  font-weight: 500;
 }
 
 .check-icon {
-  color: var(--color-accent-pink);
+  color: var(--color-accent-blue);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -153,16 +146,16 @@
 }
 
 .btn-outline {
-  background: transparent;
+  background: white;
   color: var(--color-text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: none;
+  border: 3px solid var(--border-color);
+  box-shadow: 0 4px 0 var(--border-color);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: none;
-  transform: none;
+  background: #F8FBFC;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--border-color);
 }
 
 @media (max-width: 1024px) {
@@ -179,133 +172,121 @@
   .pricing-card {
     width: 100%;
     transform: scale(1) !important;
-    opacity: 1 !important;
-    border-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--border-color) !important;
     box-shadow: var(--shadow-sm) !important;
   }
 
   .pricing-card.active {
     border-color: var(--color-accent-pink) !important;
+    box-shadow: 0 10px 0 var(--color-accent-pink) !important;
   }
 }
 
 .how-it-works-steps {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   max-width: 1100px;
   margin: 0 auto;
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 2rem 0;
 }
 
 .step-card {
   position: relative;
   flex: 1;
-  background: var(--color-bg-main);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 3rem 2rem 2.5rem;
+  background: var(--color-bg-secondary);
+  border: 4px solid var(--border-color);
+  border-radius: 30px;
+  padding: 4rem 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 8px 0 var(--border-color);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .step-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 13px 0 var(--color-accent-blue);
+}
+
+.step-card:hover .step-icon-wrap {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .step-number {
   position: absolute;
-  top: -15px;
-  left: -15px;
-  width: 40px;
-  height: 40px;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 1.2rem;
   color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 4px solid white;
 }
 
 .step-number.step-color-1 {
   background: var(--color-accent-pink);
-  box-shadow: 0 0 15px rgba(255, 66, 117, 0.5);
+  box-shadow: 0 6px 0 #E66A8A;
 }
 
 .step-number.step-color-2 {
-  background: #3B82F6;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  background: var(--color-accent-blue);
+  box-shadow: 0 6px 0 #5A99C9;
 }
 
 .step-icon-wrap {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  background: var(--color-bg-secondary);
-  border: 2px solid;
+  background: #F8FBFC;
+  border: 4px solid;
+  transition: transform 0.3s ease;
 }
 
 .step-icon-wrap.step-color-1 {
   color: var(--color-accent-pink);
   border-color: var(--color-accent-pink);
-  box-shadow: 0 0 20px rgba(255, 66, 117, 0.3), inset 0 0 10px rgba(255, 66, 117, 0.2);
 }
 
 .step-icon-wrap.step-color-2 {
-  color: #3B82F6;
-  border-color: #3B82F6;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 10px rgba(59, 130, 246, 0.2);
+  color: var(--color-accent-blue);
+  border-color: var(--color-accent-blue);
 }
 
 .step-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 800;
   color: var(--color-text-primary);
   margin-bottom: 0.75rem;
 }
 
 .step-card p {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--color-text-secondary);
   line-height: 1.5;
+  font-weight: 500;
 }
 
 .step-arrow {
-  color: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.step-arrow.arrow-1 {
-  color: var(--color-accent-pink);
-  opacity: 0.7;
-}
-
-.step-arrow.arrow-2 {
-  color: #8C69FF; /* a purple color for the gradient transition between pink and blue */
-  opacity: 0.9;
+  display: none; /* Hide arrows for bubbly child design, relying on numbers instead */
 }
 
 @media (max-width: 768px) {
   .how-it-works-steps {
     flex-direction: column;
-  }
-  
-  .step-arrow {
-    transform: rotate(90deg);
-    margin: 1rem 0;
   }
 }

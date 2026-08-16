@@ -1,7 +1,8 @@
 .testimonials-section {
   padding: var(--section-padding);
-  background-color: var(--color-bg-main);
+  background-color: var(--color-bg-secondary);
   overflow: hidden;
+  position: relative;
 }
 
 .t-marquee-container {
@@ -34,48 +35,57 @@
 .review-card {
   flex-shrink: 0;
   width: 350px;
-  background: var(--color-bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 2rem;
+  background: var(--color-bg-main);
+  border: 4px solid var(--border-color);
+  border-radius: 30px;
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 0 var(--border-color);
   white-space: normal;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.review-card:hover {
+  transform: translateY(-5px) rotate(-2deg);
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 10px 0 var(--color-accent-blue);
 }
 
 .r-stars {
-  color: #FFB800;
+  color: var(--color-accent-yellow);
   display: flex;
   gap: 4px;
   margin-bottom: 1.5rem;
 }
 
 .r-msg {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--color-text-secondary);
   flex-grow: 1;
   margin-bottom: 2rem;
   font-style: italic;
+  font-weight: 500;
 }
 
 .r-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 2px dashed var(--border-color);
   padding-top: 1.5rem;
   display: flex;
   align-items: center;
 }
 
 .r-user-info h4 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.2rem;
 }
 
 .r-user-info span {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--color-accent-pink);
   text-transform: uppercase;
   letter-spacing: 1px;

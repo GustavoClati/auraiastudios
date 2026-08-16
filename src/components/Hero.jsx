@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart, Cloud } from 'lucide-react';
 import './Hero.css';
-import { MessageCircle, Image as ImageIcon, Sparkles, Clock, ShieldCheck, Heart } from 'lucide-react';
+import SectionDivider from './SectionDivider';
 
 const images = ['/imgs/real-1.jpg', '/imgs/real-2.jpg', '/imgs/real-3.jpg'];
 
@@ -17,7 +18,17 @@ const Hero = () => {
 
   return (
     <section className="hero">
-      <div className="hero-glow"></div>
+      {/* Floating clouds for magic child theme */}
+      <div className="floating-cloud" style={{ top: '10%', left: '5%', opacity: 0.6 }}>
+        <Cloud size={80} color="#FFFFFF" fill="#FFFFFF" />
+      </div>
+      <div className="floating-cloud" style={{ top: '20%', right: '10%', opacity: 0.8, animationDelay: '2s' }}>
+        <Cloud size={120} color="#FFFFFF" fill="#FFFFFF" />
+      </div>
+      <div className="floating-cloud" style={{ bottom: '30%', left: '15%', opacity: 0.5, animationDelay: '5s' }}>
+        <Cloud size={60} color="#FFFFFF" fill="#FFFFFF" />
+      </div>
+
       <div className="container hero-container">
         
         <motion.div 
@@ -28,7 +39,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="hero-badge">
-            <span className="text-gradient">ENSAIOS INFANTIS CRIADOS COM INTELIGÊNCIA ARTIFICIAL</span>
+            <span className="text-gradient">ENSAIOS INFANTIS COM MAGIA E IA</span>
           </div>
           
           <h1 className="hero-title">
@@ -94,6 +105,11 @@ const Hero = () => {
           </div>
         </motion.div>
         
+      </div>
+      
+      {/* Animated Wave Divider separating Hero from Gallery */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0 }}>
+        <SectionDivider color="var(--color-bg-secondary)" />
       </div>
     </section>
   );

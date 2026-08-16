@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import './Testimonials.css';
+import SectionDivider from './SectionDivider';
 
 const testimonialsRow1 = [
   {
     id: 1,
     name: 'Camila R.',
     theme: 'Patrulha Canina',
-    clientMsg: 'Ficou perfeito! Comprei o pacote de 10 fotos e economizei com fotógrafo de estúdio.'
+    clientMsg: 'Ficou perfeito! Comprei o pacote de 10 fotos e o meu filho ficou encantado se vendo como herói.'
   },
   {
     id: 2,
@@ -20,22 +21,22 @@ const testimonialsRow1 = [
     id: 3,
     name: 'Patrícia A.',
     theme: 'Princesa',
-    clientMsg: 'Fiquei com receio no começo, mas me entregaram em menos de 2 horas e as fotos parecem de cinema. Recomendo muito!'
+    clientMsg: 'Fiquei com receio no começo, mas me entregaram em menos de 2 horas e as fotos parecem de cinema de tão lindas. Recomendo muito!'
   },
   {
     id: 4,
     name: 'Amanda C.',
     theme: 'Fazendinha',
-    clientMsg: 'As fotos do meu filho de caipira ficaram perfeitas! Todo mundo no Instagram amou.'
+    clientMsg: 'As fotos do meu bebê de caipira ficaram um encanto! Todo mundo no Instagram amou.'
   }
 ];
 
 const testimonialsRow2 = [
   {
     id: 5,
-    name: 'Rafael T.',
-    theme: 'Retrato corporativo',
-    clientMsg: 'Muito prático! Só mandei uma foto do celular e recebi o ensaio perfeito pro meu LinkedIn. Ganhei até elogio no trabalho.'
+    name: 'Mãe do Rafael',
+    theme: 'Astronauta',
+    clientMsg: 'Muito prático! Só mandei uma foto do celular e recebi o ensaio perfeito. Ele amou se ver no espaço.'
   },
   {
     id: 6,
@@ -45,22 +46,26 @@ const testimonialsRow2 = [
   },
   {
     id: 7,
-    name: 'Marcos V.',
-    theme: 'Adolescente',
-    clientMsg: 'Excelente atendimento e qualidade absurda. Pedi alteração em uma das fotos e me mandaram de volta rapidinho.'
+    name: 'Carla V.',
+    theme: 'Fada',
+    clientMsg: 'Minha filha achou que era mágica de verdade! A qualidade é absurda, me mandaram de volta rapidinho.'
   },
   {
     id: 8,
     name: 'Luiza B.',
-    theme: 'Escolar',
-    clientMsg: 'Fiz o tema escolar para a lembrancinha dos avós e ficou um charme. Vale muito a pena o pacote maior!'
+    theme: 'Sereia',
+    clientMsg: 'Fiz o tema escolar para a lembrancinha dos avós e ficou um charme. E o de sereia virou o quadro do quarto!'
   }
 ];
 
 const Testimonials = () => {
   return (
     <section id="depoimentos" className="testimonials-section">
-      <div className="container">
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
+        <SectionDivider position="top" color="var(--color-bg-secondary)" />
+      </div>
+
+      <div className="container" style={{ paddingTop: '8rem' }}>
         <motion.div 
           className="section-header"
           initial={{ opacity: 0, y: 20 }}
@@ -68,10 +73,10 @@ const Testimonials = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-subtitle">O QUE DIZEM SOBRE A ENCANTA STUDIO</span>
-          <h2 className="section-title">Depoimentos <span className="text-gradient font-italic">Reais</span></h2>
+          <span className="section-subtitle" style={{ color: 'var(--color-accent-pink)', fontWeight: 800 }}>O QUE DIZEM SOBRE A ENCANTA STUDIO</span>
+          <h2 className="section-title">Depoimentos de <span className="text-gradient font-italic">Mamães</span></h2>
           <p className="section-description">
-            Milhares de clientes satisfeitos com ensaios criados com inteligência artificial.
+            Famílias encantadas com os ensaios mágicos que criamos.
           </p>
         </motion.div>
       </div>

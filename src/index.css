@@ -1,31 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Baloo+2:wght@500;600;700;800&display=swap');
 
 :root {
-  /* Colors - Dark Theme Premium */
-  --color-bg-main: #0B0914; /* Deep purple/black */
-  --color-bg-secondary: #161224; /* Slightly lighter for cards */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A9A2BA;
+  /* Colors - Playful Child Theme */
+  --color-bg-main: #EAF6FB; /* Soft Sky Blue */
+  --color-bg-secondary: #FFFFFF; /* Pure white cards */
+  --color-text-primary: #1F305E; /* Deep navy blue */
+  --color-text-secondary: #566D9E;
   
   /* Accents */
-  --color-accent-pink: #FF4275;
-  --color-accent-pink-hover: #E62E5F;
-  --color-accent-blue: #4287FF;
-  --color-gradient-primary: linear-gradient(135deg, #FF4275 0%, #FF6B96 100%);
-  --color-gradient-glow: linear-gradient(90deg, rgba(255,66,117,0.5) 0%, rgba(66,135,255,0.5) 100%);
+  --color-accent-pink: #FF85A2;
+  --color-accent-pink-hover: #FF6B8B;
+  --color-accent-blue: #7CB9E8;
+  --color-accent-yellow: #FFD166;
+  
+  --color-gradient-primary: linear-gradient(135deg, #FF85A2 0%, #FFA8C1 100%);
+  --color-gradient-secondary: linear-gradient(135deg, #FFD166 0%, #FFE099 100%);
   
   /* Borders & Shadows */
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(255, 66, 117, 0.3);
+  --border-color: #D3E6F0;
+  --shadow-sm: 0 4px 10px rgba(31, 48, 94, 0.05);
+  --shadow-md: 0 10px 30px rgba(31, 48, 94, 0.1);
+  --shadow-lg: 0 20px 50px rgba(31, 48, 94, 0.15);
+  --shadow-btn: 0 6px 0 #E66A8A; /* 3D effect shadow */
+  --shadow-btn-hover: 0 2px 0 #E66A8A; /* 3D effect shadow hover */
 
   /* Typography */
-  --font-family: 'Plus Jakarta Sans', sans-serif;
+  --font-family-headings: 'Baloo 2', cursive;
+  --font-family: 'Quicksand', sans-serif;
   
   /* Spacing */
-  --section-padding: 5rem 2rem;
+  --section-padding: 6rem 2rem;
   --max-width: 1200px;
 }
 
@@ -47,6 +51,7 @@ html {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--color-bg-main);
 }
 
 a {
@@ -64,16 +69,16 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family);
+  font-family: var(--font-family-headings);
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.02em; /* Tighten up headings for a premium look */
   color: var(--color-text-primary);
 }
 
 p {
   line-height: 1.6;
   color: var(--color-text-secondary);
+  font-size: 1.1rem;
 }
 
 button {
@@ -88,6 +93,8 @@ button {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Gradient Text */
@@ -98,86 +105,108 @@ button {
   background-clip: text;
 }
 
-/* Primary Button Style */
+.text-gradient.font-italic {
+  font-style: italic;
+  padding-right: 0.2em; /* Fix cut-off in some fonts */
+}
+
+/* Primary Button Style - Playful */
 .btn-primary {
-  background: var(--color-gradient-primary);
+  background: var(--color-accent-pink);
   color: white;
-  padding: 0.875rem 1.75rem;
+  padding: 1rem 2rem;
   border-radius: 999px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-btn);
+  border: 3px solid white;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
+  transform: translateY(4px);
+  box-shadow: var(--shadow-btn-hover);
 }
 
 /* Secondary Button Style */
 .btn-secondary {
-  background: transparent;
-  color: white;
-  padding: 0.875rem 1.75rem;
+  background: white;
+  color: var(--color-accent-pink);
+  padding: 1rem 2rem;
   border-radius: 999px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 3px solid var(--color-accent-pink);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  box-shadow: 0 6px 0 var(--color-accent-pink);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--color-accent-pink);
 }
 
-/* Global Magic Glows */
-.global-glow {
+/* Animated Clouds */
+.floating-cloud {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  z-index: 0;
-  pointer-events: none;
-  animation: floatOrb 10s infinite alternate ease-in-out;
+  z-index: 1;
+  opacity: 0.8;
+  animation: floatCloud 20s infinite linear alternate;
 }
 
-.glow-1 {
-  width: 400px;
-  height: 400px;
-  background: rgba(255, 66, 117, 0.15);
-  top: 10%;
-  left: -10%;
+@keyframes floatCloud {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, -20px); }
 }
 
-.glow-2 {
-  width: 500px;
-  height: 500px;
-  background: rgba(66, 135, 255, 0.1);
-  top: 40%;
-  right: -15%;
-  animation-delay: 2s;
+.floating-star {
+  position: absolute;
+  z-index: 1;
+  color: var(--color-accent-yellow);
+  animation: pulseStar 3s infinite alternate;
 }
 
-.glow-3 {
-  width: 600px;
-  height: 600px;
-  background: rgba(255, 184, 0, 0.08);
-  bottom: -10%;
-  left: 20%;
-  animation-delay: 4s;
+@keyframes pulseStar {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+  100% { transform: scale(1.2) rotate(15deg); opacity: 1; }
 }
 
-@keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -50px) scale(1.1); }
-  100% { transform: translate(-30px, 20px) scale(0.9); }
+/* Wave Divider Component Styles */
+.wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 10;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(150% + 1.3px);
+  height: 120px;
+  animation: waveMove 15s linear infinite;
+}
+
+.wave-divider .shape-fill {
+  fill: var(--color-bg-secondary);
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33%); }
+}
+
+@media (max-width: 768px) {
+  .wave-divider svg {
+    height: 60px;
+  }
 }
