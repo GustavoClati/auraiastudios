@@ -2,6 +2,10 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Gallery.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import lionImg from '../assets/gal_lion.jpg';
+import fairyImg from '../assets/gal_fairy.jpg';
+import astroImg from '../assets/gal_astronaut.jpg';
+import basketImg from '../assets/gal_basket.jpg';
 
 const Gallery = () => {
   const scrollRef = useRef(null);
@@ -14,8 +18,7 @@ const Gallery = () => {
     }
   };
 
-  // Generate 8 placeholder slots for the gallery
-  const items = Array.from({ length: 8 }, (_, i) => i + 1);
+  const images = [lionImg, fairyImg, astroImg, basketImg, lionImg, fairyImg, astroImg, basketImg];
 
   return (
     <section id="ensaios" className="gallery-section">
@@ -45,10 +48,17 @@ const Gallery = () => {
         </button>
         
         <div className="gallery-track" ref={scrollRef}>
-          {items.map((item) => (
-            <div key={item} className={`gallery-item item-${item}`}>
-              <div className="gallery-img-placeholder"></div>
-            </div>
+          {images.map((imgSrc, index) => (
+            <motion.div 
+              key={index} 
+              className={`gallery-item item-${index}`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "0px -50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="gallery-img-placeholder" style={{ backgroundImage: `url(${imgSrc})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+            </motion.div>
           ))}
         </div>
 

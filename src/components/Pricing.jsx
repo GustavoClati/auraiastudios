@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, MessageCircle, Clock, Heart, ShieldCheck, Camera, Sparkles } from 'lucide-react';
 import './Pricing.css';
@@ -6,10 +6,7 @@ import princessImg from '../assets/hero_princess.jpg';
 import spidermanImg from '../assets/hero_spiderman.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
 
-const categories = ['Infantil', 'Newborn', 'Família', 'Aniversário adulto', 'Adolescente', 'Corporativo'];
-
 const Pricing = () => {
-  const [activeCategory, setActiveCategory] = useState('Infantil');
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -37,23 +34,6 @@ const Pricing = () => {
             <Sparkles size={14} />
             <span><strong>TODOS OS ENSAIOS INCLUEM:</strong> edição profissional • qualquer tema • entrega em alta qualidade</span>
           </div>
-        </motion.div>
-
-        <motion.div 
-          className="pricing-categories"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          {categories.map(cat => (
-            <button 
-              key={cat} 
-              className={`cat-btn ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
         </motion.div>
 
         <motion.div 

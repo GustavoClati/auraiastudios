@@ -8,11 +8,11 @@ const testimonialsData = [
     id: 1,
     initials: 'CR',
     name: 'Camila R.',
-    theme: 'Patrulha Canina - Aniversário infantil',
+    theme: 'Patrulha Canina',
     color: '#FF6B96',
-    clientMsg: 'Gente, ficou perfeito!! Nem parece que era só uma foto do dia a dia 😍',
+    clientMsg: 'Gente, ficou perfeito!! Comprei o pacote de 10 fotos e economizei horrores com fotógrafo de estúdio. 😍',
     clientTime: '19:42',
-    studioMsg: 'Que alegria! Fico muito feliz que amou 💛',
+    studioMsg: 'Que alegria, Camila! Fico muito feliz que amou 💛',
     studioTime: '19:44'
   },
   {
@@ -21,20 +21,20 @@ const testimonialsData = [
     name: 'Juliana M.',
     theme: 'Ensaio Newborn',
     color: '#4287FF',
-    clientMsg: 'Chorei de emoção quando vi as fotos do meu bebê assim 🥺',
+    clientMsg: 'O ensaio newborn ficou a coisa mais linda! Não precisei sair de casa com o recém-nascido e o resultado emocionou toda a família. 🥺',
     clientTime: '21:05',
-    studioMsg: 'Ficamos muito felizes em fazer parte desse momento!',
+    studioMsg: 'Ficamos muito felizes em eternizar esse momento tão especial!',
     studioTime: '21:07'
   },
   {
     id: 3,
     initials: 'PA',
     name: 'Patrícia A.',
-    theme: 'Família',
+    theme: 'Princesa',
     color: '#FF4275',
-    clientMsg: 'Rapidinho mesmo! Pedi de manhã e à tarde já tinha recebido tudo pronto',
+    clientMsg: 'Fiquei com receio no começo, mas me entregaram em menos de 2 horas e as fotos parecem de cinema. Recomendo muito!',
     clientTime: '14:12',
-    studioMsg: 'Isso mesmo! Entrega expressa sempre que precisar 😉',
+    studioMsg: 'Agradecemos a confiança! Conte sempre com a gente 😉',
     studioTime: '14:15'
   },
   {
@@ -43,20 +43,20 @@ const testimonialsData = [
     name: 'Rafael T.',
     theme: 'Retrato corporativo',
     color: '#89CFF0',
-    clientMsg: 'Usei pro meu perfil do LinkedIn, ficou super profissional',
+    clientMsg: 'Muito prático! Só mandei uma foto do celular e recebi o ensaio perfeito pro meu LinkedIn. Ganhei até elogio no trabalho.',
     clientTime: '09:30',
-    studioMsg: 'Ótima escolha! Ideal pra quem quer causar boa impressão',
+    studioMsg: 'Ótima escolha, Rafael! Causa uma excelente primeira impressão.',
     studioTime: '09:33'
   },
   {
     id: 5,
     initials: 'BS',
     name: 'Beatriz S.',
-    theme: 'Aniversário adulto',
+    theme: 'Super-Herói',
     color: '#E6A8D7',
-    clientMsg: 'Amei poder ter uma foto elegante sem precisar agendar estúdio',
+    clientMsg: 'Superou todas as expectativas. Fizemos o tema do Batman pro meu sobrinho e ele não para de mostrar pra todo mundo! 😂',
     clientTime: '18:20',
-    studioMsg: 'Foi um prazer fazer parte dessa comemoração! 🥂',
+    studioMsg: 'Hahaha que maravilha! Foi um prazer criar esse ensaio! 🦇',
     studioTime: '18:22'
   },
   {
@@ -65,9 +65,9 @@ const testimonialsData = [
     name: 'Marcos V.',
     theme: 'Adolescente',
     color: '#FF4500',
-    clientMsg: 'Fiz pro meu filho, ele ficou super orgulhoso do resultado',
+    clientMsg: 'Excelente atendimento e qualidade absurda. Pedi alteração em uma das fotos e me mandaram de volta rapidinho.',
     clientTime: '20:50',
-    studioMsg: 'Que demais! Fico muito feliz em ler isso 💛',
+    studioMsg: 'A gente faz questão de deixar tudo perfeito pra vocês 💛',
     studioTime: '20:52'
   }
 ];
