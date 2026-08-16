@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ImagePlus, Wand2, Send } from 'lucide-react';
+import { CheckCircle2, CloudUpload, Sparkles, Download, ArrowRight } from 'lucide-react';
 import './Pricing.css';
 import princessImg from '../assets/hero_princess.jpg';
 import pawpatrolImg from '../assets/hero_pawpatrol.jpg';
@@ -90,32 +90,39 @@ const Pricing = () => {
           viewport={{ once: true, margin: "-50px" }}
           variants={containerVariants}
         >
-          <motion.div className="step-item" variants={cardVariants}>
-            <div className="step-icon">
-              <ImagePlus size={32} />
+          <motion.div className="step-card" variants={cardVariants}>
+            <div className="step-number step-color-1">01</div>
+            <div className="step-icon-wrap step-color-1">
+              <CloudUpload size={40} />
             </div>
-            <h3>1. Envie a Foto</h3>
-            <p>Mande de 1 a 3 fotos claras do rosto da criança pelo WhatsApp.</p>
+            <h3>Envie sua foto</h3>
+            <p>Uma foto simples, tirada com o celular mesmo — sem estúdio, sem preparo.</p>
           </motion.div>
           
-          <motion.div className="step-divider" variants={cardVariants}></motion.div>
-
-          <motion.div className="step-item" variants={cardVariants}>
-            <div className="step-icon">
-              <Wand2 size={32} />
-            </div>
-            <h3>2. Escolha o Tema</h3>
-            <p>Escolha o seu pacote abaixo e defina os temas (heróis, profissões, fadas...).</p>
+          <motion.div className="step-arrow arrow-1" variants={cardVariants}>
+            <ArrowRight size={32} />
           </motion.div>
 
-          <motion.div className="step-divider" variants={cardVariants}></motion.div>
-
-          <motion.div className="step-item" variants={cardVariants}>
-            <div className="step-icon">
-              <Send size={32} />
+          <motion.div className="step-card" variants={cardVariants}>
+            <div className="step-number step-color-1">02</div>
+            <div className="step-icon-wrap step-color-1">
+              <Sparkles size={40} />
             </div>
-            <h3>3. Receba a Magia</h3>
-            <p>Nossa Inteligência Artificial cria tudo e te entregamos pronto em alta resolução!</p>
+            <h3>Escolha o tema</h3>
+            <p>Aniversário, desenho, super-herói, fazendinha e muito mais. Você escolhe e nós criamos!</p>
+          </motion.div>
+
+          <motion.div className="step-arrow arrow-2" variants={cardVariants}>
+            <ArrowRight size={32} />
+          </motion.div>
+
+          <motion.div className="step-card" variants={cardVariants}>
+            <div className="step-number step-color-2">03</div>
+            <div className="step-icon-wrap step-color-2">
+              <Download size={40} />
+            </div>
+            <h3>Receba o ensaio</h3>
+            <p>Suas fotos chegam prontas, em alta qualidade, direto no WhatsApp. Rápido e fácil!</p>
           </motion.div>
         </motion.div>
 
