@@ -17,7 +17,7 @@ const Gallery = () => {
       >
         <span className="section-subtitle">ALGUNS DOS NOSSOS ENSAIOS</span>
         <h2 className="section-title">
-          Ensaios infantis <span className="text-gradient font-italic">incríveis</span>
+          Ensaios infantis <span className="text-pink font-italic">incríveis</span>
         </h2>
         <p>Qualquer tema, criado com Inteligência Artificial e muito carinho.</p>
       </motion.div>

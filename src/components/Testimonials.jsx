@@ -74,7 +74,7 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="section-subtitle" style={{ color: 'var(--color-accent-pink)', fontWeight: 800 }}>O QUE DIZEM SOBRE A ENCANTA STUDIO</span>
-          <h2 className="section-title">Depoimentos de <span className="text-gradient font-italic">Mamães</span></h2>
+          <h2 className="section-title">Depoimentos de <span className="text-pink font-italic">Mamães</span></h2>
           <p className="section-description">
             Famílias encantadas com os ensaios mágicos que criamos.
           </p>

@@ -3,6 +3,15 @@
   background-color: var(--color-bg-secondary);
   overflow: hidden;
   position: relative;
+  color: var(--color-text-primary-dark);
+}
+
+.testimonials-section h2 {
+  color: var(--color-text-primary-dark);
+}
+
+.testimonials-section p {
+  color: var(--color-text-secondary-dark);
 }
 
 .t-marquee-container {
